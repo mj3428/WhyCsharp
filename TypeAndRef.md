@@ -5,5 +5,12 @@
 * **引用类型** 需要两段内存。  
   * 第一段存储实际的数据，它总是位于 堆 中;
   * 第二段时一个引用，指向数据在堆中的存放位置;  
+
 Value类型对象，或 Ref类型数据的 **引用部分** 可以存放在堆里，也可以存放在栈里，这依赖于实际环境。  
-什么是引用类型:【预定义类型】float,object,double,string,char,dynamic,decimal;【用户定义类型】class,interface,delegate,Array;
+什么是引用类型:【预定义类型】float,object,double,string,char,dynamic,decimal;【用户定义类型】class,interface,delegate,Array;  
+## 变量
+### 变量自动初始化
+有些变量是会自动初始化的，
+- 【自动初始化变量】:类型字段(在堆中)，结构字段(在堆或栈中)，数组元素(在堆中);
+- 【非自动初始化变量】:局部变量(在栈或者栈和堆中)，参数(在栈中)；  
+
