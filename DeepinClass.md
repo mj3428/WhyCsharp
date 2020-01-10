@@ -33,3 +33,22 @@ using System;
 ...
 Console.WriteLine($"The square root of 16 is {Math.Sqrt(16)}");
 ```
+### 静态成员的生存期
+- 顺便一提，实例创建之后才能产生实例成员，在实例销毁之后实例成员也就不存在了。  
+- 但是**即使类没有实例** ，也存在静态成员（在堆中）,并且可以访问。  
+
+比如:
+```
+class D
+{
+  int Mem1;
+  static public int Mem2;
+}
+...
+static void Main()
+{
+  D.Mem =5;
+  Console.WriteLine
+    ("Mem2 = {0}", D.Mem2);
+}
+```
