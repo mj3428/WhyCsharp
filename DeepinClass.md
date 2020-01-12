@@ -52,3 +52,27 @@ static void Main()
     ("Mem2 = {0}", D.Mem2);
 }
 ```
+## 静态函数成员
+- 如同静态字段。静态函数成员独立于任何类实例。即使没有类的实例，仍然可以调用静态方法。  
+- 静态函数成员不能访问实例成员，但能访问其他静态成员。  
+*如:静态方法的方法体访问静态字段* 
+```
+class X
+{
+  static public int A;  //  静态字段
+  static public void PrintValA()  //  静态方法
+  {
+    Console.WriteLine("Value of A:{0}", A)
+  }
+}
+
+在被调用的时候
+class Program
+{
+  static void Main()
+  {
+    X.A = 10; //  使用点号语法
+    X.PrintValA();  //  使用点号语法
+  }
+}
+```
