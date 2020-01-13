@@ -108,3 +108,25 @@ class MyClass
   * 没有参数；
   * 拥有一个与属性类型相同的返回类型。  
   
+### 计算只读属性
+get访问器计算出返回值，返回斜边长度
+```
+class RightTriangle
+{
+  public double A = 3;
+  public double B = 4;
+  public double Hypotenuse  //  只读属性
+  {
+    get{ return Math.Sqrt((A*A)+(B*B));}  //  计算返回值
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+    RightTriangle c = new RightTriangle();
+    Console.WriteLine($"Hyptenuse:{c.Hypotenuse}");
+  }
+}
+```
