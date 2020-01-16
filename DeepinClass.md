@@ -130,3 +130,41 @@ class Program
   }
 }
 ```
+## 实例构造函数
+### 带参数的构造函数
+* 构造函数可以带参数  
+* 构造函数可以被重载
+Class1有3个构造函数:一个不带参数，一个带Int参数，一个带string参数。
+```
+class Class1
+{
+  int Id;
+  string Name;
+  
+  public Class1() {Id=28;Name="Nemo";}  //  构造函数0
+  public Class1(int val)  {Id=val;Name="Nemo";} //  构造函数1
+  public Class1(String name)  {Name=name;}  //  构造函数2
+  
+  public void SoundOff()
+  {Console.WriteLine($"Name {Name},Id {Id}");}
+}
+
+class Program
+{
+  static void Main()
+  {
+    Class1 a = new Class1(),  //  调用构造函数0
+           b = new Class1(7),  //  调用构造函数1
+           c = new Class1("Bill");  //  调用构造函数2
+    a.SoundOff();
+    b.SoundOff();
+    c.SoundOff();
+  }
+}
+---------------------------------------
+输出:
+Name Nemo, Id 28
+Name Nemo, Id 7
+Name Bill, Id 0
+---------------------------------------
+```
