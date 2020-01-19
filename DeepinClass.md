@@ -220,3 +220,4 @@ class Program
 输出结果: Sum is 11
 -------------------
 ```
+因为分部方法是隐式私有的，所以PrintSum不能从类的外部调用。方法Add是调用PrintSum的公有方法。
