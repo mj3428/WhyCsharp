@@ -181,3 +181,42 @@ Name Bill, Id 0
   - 类只能有一个静态构造函数，而且不能带参数
   - 静态构造函数不能有访问修饰符
 
+## 分部方法
+分为**定义分部方法** 和**实现分分部方法** 
+- 定义声明和实现声明的签名和返回类型必须匹配
+  - 返回类型必须是void
+  - 签名不能包括访问修饰符，这使分部方法是隐式私有的
+  - 参数列表不能包含out参数
+  - 在定义声明和实现声明中都必须包含上下文关键字partial,并且直接放在关键字void之前  
+- 可以有定义部分而没有实现部分。这种情况，编译器把方法的声明以及方法内部任何对方法的调用都移除。不能只有分部方法的实现部分而没有定义部分
+```
+partial class MyClass
+{
+  partial void PrintSum(int x, int y);  //  定义分部方法
+  public void Add(int x, int y)
+  {
+    PrintSum(x, y);
+  }
+}
+
+partial class MyClass
+{
+  partial void PrintSum(int x, int y) //  实现分部方法
+  {
+    Console.WriteLine("Sum is {0}", x+y);
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+    var mc = new MyClass();
+    mc.Add(5,6)
+  }
+}
+
+-------------------
+输出结果: Sum is 11
+-------------------
+```
