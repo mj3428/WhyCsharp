@@ -52,3 +52,21 @@ FancyNumbers
 FancyNumbers,Animation
 ----------------------------
 ```
+## 关于枚举的更多内容
+枚举只有单一的成员类型：声明的成员常量  
+- 不能对成员使用修饰符（即public\private等修饰符）。它们都隐式地具有枚举相同的可访问性。  
+- 由于成员是静态的，即使没有该枚举类型的变量时也可以访问它们。  
+- 和所有静态类型一样，访问枚举的成员有两种方法。  
+  - 使用类型名称，用点和成员名
+  - 使用using static指令来避免每次都包含类名  
+  ```c#
+  using static TrafficLight;
+  using static System.Console;
+  ...
+  static void Main()
+  {
+    WriteLine($"{ Green }");
+    WriteLine($"{ Yellow }");
+    WriteLine($"{ Red }");
+  }
+  ```
