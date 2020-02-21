@@ -38,3 +38,17 @@ FancyNumbers
 12
 ---------------------------
 ```
+这段代码中，Main做了以下事情:  
+* 创建枚举类型CardDeckSettings的变量，设置一个位标志，并打印变量的值（即FancyNumbers）;  
+* 为变量赋一个包含两个位标志的新值，并打印它的值(即12);  
+作为第二次赋值结果而显示的值12是ops的值。它是一个int,因为FancyNumbers将位设置为4，Animation将位设置为值8，因此最终得到Int值12.在
+赋值语句之后的WriteLine方法中，ToString方法会查找哪个枚举成员具有值12，幽羽没有找到，因此会打印出12。  
+然而，如果在枚举声明前加上Flags特性，将告诉ToString方法位可以分开考虑。在查找值时，ToString会发现12对应两个分开的位标志成员——FancyNumbers
+和Animation，这时将返回它们的名称，用逗号和空格隔开。  
+结果如下:
+```c#
+----------------------------
+FancyNumbers
+FancyNumbers,Animation
+----------------------------
+```
