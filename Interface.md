@@ -49,4 +49,21 @@ class Program
 * 这些函数成员的声明不能包含任何实现代码，必须使用分号代替每一个成员声明的主体。  
 * 按照惯例，接口名称必须从大写的I开始（比如ISaveable）
 * 与类和结构一样，接口声明也可以分隔成分部接口声明  
+比如:
+```c#
+interface IMyinterface1
+{
+  int Dostuff (int nVar1, long lVar2);  //  分号代替了主体
+  double DoOtherStuff(string s, long x);  //  分号代替了主体
+}
+```
 
+另外，**接口的访问性** 和 **接口成员的访问性** 有一些重要区别:  
+* 接口声明可以有任何的访问修饰符:public\protected\internal或private
+* 然而，接口成员是隐式public的，不允许有任何访问修饰符，包括public
+```c#
+public interface IMyInterface2 // 接口可以有访问修饰符
+{
+  private int Method1(int nVar1, long lVar2); //  错误，接口成员不允许有访问修饰符
+}
+```
