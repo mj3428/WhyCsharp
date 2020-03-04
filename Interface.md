@@ -67,3 +67,14 @@ public interface IMyInterface2 // 接口可以有访问修饰符
   private int Method1(int nVar1, long lVar2); //  错误，接口成员不允许有访问修饰符
 }
 ```
+## 实现接口
+类之后冒号接口，然后..用就行  
+关于实现接口，需要了解重要事项如下:
+* 如果类实现了接口，它必须实现接口的**所有成员**   
+* 如果类派生自基类并实现了接口，基类列表中的基类名称必须放在所有接口之前，只能有一个基类
+```c#
+class Derived : MyBaseClass(第一个为基类), IIfc1, IEnumerable, IComparable（后面3个为接口）
+{
+  ...
+}
+```
