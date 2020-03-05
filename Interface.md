@@ -78,3 +78,27 @@ class Derived : MyBaseClass(第一个为基类), IIfc1, IEnumerable, IComparable
   ...
 }
 ```
+### 简单接口示例
+```c#
+interface IIfc1 //  声明接口
+{
+  void PrintOut(string s);
+}
+
+class MyClass : IIfc1 //  声明类
+{
+  public void PrintOut(string s)  //  实现
+  {
+    Console.WriteLine($"Calling through:{s}");
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+    MyClass mc = new MyClass(); //  创建实例
+    mc.PrintOut("object");  //  调用方法
+  }
+}
+```
