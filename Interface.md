@@ -151,3 +151,23 @@ ILiveBirth b = a as ILiveBirth; //  跟cast:(ILiveBirth)a 一样
 if (b != null)
 Console.WriteLine($"Baby is called:{b.BabyCalled()}")
 ```
+## 实现具有重复成员的接口
+要是两个接口内容一样，就实现一个
+```c#
+class MyClass : IIfc1,IIfc2 //  实现两个接口
+{
+  public void PrintOut(string s)  //  两个接口的单一实现
+  {
+    Console.WriteLine($"Calling through:{s}");
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+    MyClass mc = new MyClass();
+    mc.PrintOut("object");
+  }
+}
+```
