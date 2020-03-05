@@ -112,3 +112,29 @@ ifc.PrintOut("interface");  //  使用接口的引用调用方法
 * 第一个语句中，mc变量是一个实现了IIFc1接口的类对象的引用。该语句讲该引用显式转换为指向接口的引用，并将它赋值给ifc。但是，我们可以省略
 显式转换的部分，因为编译器可以隐式地把它转换成正确的接口，而正确的接口可以从赋值语句的左端推断出来  
 * 在第二个语句中，使用指向接口的引用来调用实现方法。  
+```c#
+interface IIfc1 //  声明接口
+{
+  void PrintOut(string s);
+}
+
+class MyClass : IIfc1 //  声明类
+{
+  public void PrintOut(string s)  //  实现
+  {
+    Console.WriteLine($"Calling through:{s}");
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+    MyClass mc = new MyClass(); //  创建类对象
+    mc.PrintOut("object");  //  调用类对象的实现方法
+    
+    IIfc1 ifc = (IIfc1)mc;  //  将类对象的引用转换为接口类型的引用
+    ifc.PrintOut("interface");  //  调用接口方法
+  }
+}
+```
