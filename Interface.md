@@ -140,3 +140,14 @@ class Program
   }
 }
 ```
+## 好用的as运算符
+如果尝试将类对象引用强制转换为类未实现的接口的引用，强制转换操作会抛出一个异常。可以通过使用as运算符来避免这个问题。  
+* 如果类实现了接口，表达式返回指向接口的引用  
+* 如果类美欧实现接口，表达式返回null而不是抛出异常  
+第一行使用as运算符来从类对象获取接口引用。表达式的结果会把b的值设置为null或ILiveBirth接口的引用  
+第二行代码检测了b的值，如果它不是null，则执行命令来调用接口成员方法。  
+```c#
+ILiveBirth b = a as ILiveBirth; //  跟cast:(ILiveBirth)a 一样
+if (b != null)
+Console.WriteLine($"Baby is called:{b.BabyCalled()}")
+```
