@@ -171,3 +171,30 @@ class Program
   }
 }
 ```
+## 帅气的实现接口（派生成员作为实现）
+1. IIfc1是一个具有PrintOut方法成员的接口
+2. MyBaseClass包含了一个叫做PrintOut的方法，它和IIfc1的方法声明相匹配  
+3. Derived类有一个空的声明主体，但它派生自MyBaseClass，并在基类列表中包含了IIfc1  
+4. 即使Derived的声明主体是空的，基类中的代码还是能满足实现接口方法的需求。  
+```cpp
+interface IIfc1 {void PrintOut(string s);}
+
+class MyBaseClass //  声明基类
+{
+  public void PrintOut(string s)  //  声明方法
+  {
+    Console.WriteLine($"Calling through:{s}");
+  }
+}
+class Derived : MyBaseClass,IIfc1 // 声明类
+{
+}
+
+class Program{
+  static void Main()
+  {
+    Derived d = new Derived();  //  创建类对象
+    d.PrintOut("object.");  //  调用方法
+  }
+}
+```
