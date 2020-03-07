@@ -19,3 +19,5 @@ i:10, oi:10
 i:12, oi:15
 ------------------------------------
 ```
+### 装箱转换
+任何值类型ValueTypeS都可以被隐式转换为object、System.ValueType或者InferfaceT类型
