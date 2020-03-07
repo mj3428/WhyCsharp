@@ -198,3 +198,16 @@ class Program{
   }
 }
 ```
+## 显式接口成员实现
+* 与所有接口实现相似，位于实现了接口的类或结构中  
+* 它使用限定接口名称来声明，由接口名称和城影院名称以及它们中间的点分隔符号构成  
+```c#
+class MyClass : IIfc1,IIfc2
+{
+  void IIfc1.PrintOut(string s) //  显式实现
+  {...}
+  
+  void IIfc2.PrintOut(string s) //  显式实现
+  {...}
+}
+```
