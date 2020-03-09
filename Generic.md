@@ -29,3 +29,6 @@ class SomeClass <T1, T2>
   pubilc T2 OtherVar;
 }
 ```
+## 类型参数的约束
+需要提供额外的信息让编译器知道参数可以接受哪些类型。  
+### where语句
