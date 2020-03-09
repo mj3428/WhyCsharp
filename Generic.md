@@ -88,3 +88,37 @@ intData = 10;
 stringData = Hi there
 -------------------------------------
 ```
+### 使用泛型接口的示例
+我们可以在非泛型类型中实现泛型接口
+```c#
+interface IMyIfc<T> //  泛型接口
+{
+  T ReturnIt(T inValue);
+}
+
+class Simple : IMyIfc<int>, IMyIfc<string>  //  非泛型类
+{
+  public int ReturnIt(int inValue)  //  实现int类型接口
+  {return inValue;}
+  
+  public string ReturnIt(string inValue)  //  实现string类型接口
+  {return inValue;}
+}
+
+class Program
+{
+  static void Main()
+  {
+    Simple trivial = new Simple();
+    
+    Console.WriteLine($"{trivial.ReturnIt(5)}");
+    Console.WriteLine($"{trivial.ReturnIt("Hi there")}");
+  }
+}
+
+-----------------------------------------
+结果为:
+5
+Hi there
+-----------------------------------------
+```
