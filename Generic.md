@@ -37,4 +37,11 @@ where语句要点：
 - 它们不适用逗号或其他符号分隔  
 - 他们可以以任何次序列出
 - where是上下文关键字，所以可以在其他上下文中使用  
-  
+```c#
+class MyClass <T1, T2, T3>
+      where T2:Custmoer //  T2的约束 没有分隔符
+      where T3:IComparable  //  T3的约束 没有分隔符
+{
+  ...
+}
+```
