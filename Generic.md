@@ -57,3 +57,34 @@ void Dostuff<T1, T2>(T1 t1,T2 t2)
 DoStuff<short, int>(sVal, iVal);
 DoStuff<int, long>(iVal, lVal);
 ```
+## 泛型结构
+直接上例子
+```c#
+struct PieceOfData<T> //  泛型结构
+{
+  public PieceOfData(T value){_data = value;}
+  private T _data;
+  public T Data
+  {
+    get {return _data;}
+    set {_data = value;}
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+    var int Data = new PieceOfData<int>(10);
+    var stringData = new PieceOfData<string>("Hi there.")
+    
+    Console.WriteLine($"intData = {intData.Data}");
+    Console.WriteLine($"stringData = {stringData.Data}");
+  }
+}
+
+-------------------------------------
+intData = 10;
+stringData = Hi there
+-------------------------------------
+```
