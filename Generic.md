@@ -45,3 +45,15 @@ class MyClass <T1, T2, T3>
   ...
 }
 ```
+
+### 调用泛型方法
+```c#
+void Dostuff<T1, T2>(T1 t1,T2 t2)
+{
+  T1 someVar = t1;
+  T2 otherVar = t2;
+  ...
+}
+DoStuff<short, int>(sVal, iVal);
+DoStuff<int, long>(iVal, lVal);
+```
