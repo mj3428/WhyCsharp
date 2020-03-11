@@ -5,3 +5,21 @@ LINQ的高级特性：
 - LINQ发音link，代表语言集成查询(language integrated query)
 - LINQ是.NET框架的扩展，它允许我们以使用SQL查询数据库的方式来查询数据集合  
 - 使用LINQ，你可以从数据库，对象集合以及XML文档中查询数据  
+```c#
+static void Main()
+{
+  int[] numbers = {2, 12, 5, 15}
+  
+  IEnumerable<int> lowNums =  //  定义并存储查询
+    from n in numbers
+    where n < 10
+    select n;
+  
+  foreach (var x in lowNums)  //  执行查询
+    Console.Write($"{x},");
+}
+--------------------------------------------
+结果:
+2, 5
+--------------------------------------------
+```
