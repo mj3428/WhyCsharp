@@ -23,3 +23,27 @@ static void Main()
 2, 5
 --------------------------------------------
 ```
+## select...group子句
+- select子句指定应该选择所选对象的哪些部分。它可以指定下面的任意一项。  
+  - 整个数据项
+  - 数据项的一个字段
+  - 数据项中几个字段组成的新对象  
+- group..by子句是可选的，用来指定选择的项如何被分组。
+```c#
+using System;
+using System.Linq;
+class Program{
+  static void Main(){
+    var students = new[]  //  匿名类型的对象数组
+    {
+      new {LName = "Jones", FName = "Mary", Age = 19, Major="History"},
+      new {LName = "Smith", FName = "Bob", Age = 20, Major="CompSci"},
+      new {LName = "Fleming", FName = "Carol", Age = 21, Major="History"}
+    };
+    
+    var query = from s in students
+                select s;
+    foreach (var q in query)
+      Console.WriteLine(q);
+}
+```
