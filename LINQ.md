@@ -79,3 +79,32 @@ class Program
   - 任何数量的XProcessingInstruction节点
 - 如果在XDocument下有最高级别的XElement节点，那么它就是XML树中其他元素的根
 - 根元素可以包含任意数量的嵌套XElement、XCpmment或XProcessingInstruction节点，并且可以在任何级别上嵌套。  
+#### 增加节点以及操作XML
+```c#
+using System;
+using System.Xml.Lingq;
+
+class Program
+{
+  static void Main()
+  {
+    XDocument xd = new XDocument( //  创建XML树
+      new XElement("root",
+        new XElement("first")
+      )
+    );
+    
+    Console.WriteLine("Original tree");
+    Console.WriteLine(xd);Console.WriteLine();  //  显示树
+    XElement rt = xd.Element("root"); //  获取第一个元素
+    
+    rt.Add(new XElement("second"));
+    rt.Add(new XElement("thrid"), //  再添加3个元素
+           new XComment("Important Comment"),
+           new XElement("fourth"));
+           
+    Console.WriteLine("Modifed tree");
+    Console.WriteLine(xd);  //  显示Modified tree
+  }
+}
+```
