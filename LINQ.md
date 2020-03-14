@@ -109,3 +109,28 @@ class Program
 }
 ```
 Add方法把新的子节点放在既有子节点之后，但把节点放在子节点之前或者之间也是可以的，使用AddFirst、AddBeforeSelf和AddAfterSelf方法即可。  
+### LINQ to XML的LINQ查询
+示例:  
+- 它从XML树种选择那些名字有5个字符的元素。幽羽这些元素的名字是first、second和thrid，只有first和third这两个名字复合搜索标准，因此这些节点被选中。
+- 它显示了所选元素的名字
+- 它格式化并显示了所选节点，包括节点名以及特性值。注意特性使用Attribute方法来获取，特性的值使用Value属性来获取。  
+```c#
+static void Main()
+{
+  XDocument xd = XDocument.Load("SimpleSample.xml") //加载文档
+  XElement rt = xd.Element("MyElements"); //获取根元素
+  
+  var xyz = from e in rt.Elements() //  选择名称包含
+            where e.Name.ToString().Length == 5 //  5个字符的元素
+            select e;
+  foreach (XElement x in xyz)
+    Console.WriteLine(x.Name.Tostring()); //  显示所选的元素
+  
+  Console.WriteLine();
+  foreach (XElement x in xyz)
+    Console.WriteLine("Name:{0}, color:{1}, size:{2}",
+                      x.Name,
+                      x.Attribute("color").Value,
+                      x.Attribute("size").Value);
+}
+```
