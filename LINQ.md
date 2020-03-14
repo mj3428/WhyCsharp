@@ -72,3 +72,10 @@ class Program
   }
 }
 ```
+## LINQ TO XML
+### XML类
+- XDocument节点可以有以下直接子节点
+  - 下面的每一个节点类型，最多有一个：XDeclaration节点、XDocumentType节点以及XElement节点
+  - 任何数量的XProcessingInstruction节点
+- 如果在XDocument下有最高级别的XElement节点，那么它就是XML树中其他元素的根
+- 根元素可以包含任意数量的嵌套XElement、XCpmment或XProcessingInstruction节点，并且可以在任何级别上嵌套。  
