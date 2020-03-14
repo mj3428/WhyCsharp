@@ -108,3 +108,4 @@ class Program
   }
 }
 ```
+Add方法把新的子节点放在既有子节点之后，但把节点放在子节点之前或者之间也是可以的，使用AddFirst、AddBeforeSelf和AddAfterSelf方法即可。  
