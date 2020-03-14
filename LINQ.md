@@ -47,3 +47,28 @@ class Program{
       Console.WriteLine(q);
 }
 ```
+## 查询中的匿名类型
+用select new关键字来创建匿名类型
+```c#
+using System;
+using System.Linq;
+
+class Program
+{
+  static void Main()
+  {
+    var students = new[]  //  匿名类型对象数组
+    {
+      new {LName = "Jones", FName = "Mary", Age = 19, Major="History"},
+      new {LName = "Smith", FName = "Bob", Age = 20, Major="CompSci"},
+      new {LName = "Fleming", FName = "Carol", Age = 21, Major="History"}
+    };
+    
+    var query = from s in students
+                select new {s.LName,s.FName,s.Major};
+                
+    foreach (var q in query)
+      Console.WriteLine($"{q.FName}{q.LName}--{q.Major}");
+  }
+}
+```
