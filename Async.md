@@ -29,3 +29,17 @@ class Program
   }
 }
 ```
+### 异步方法的控制流
+- 第一个await表达式之前的部分:从方法开头到第一个await表达式之前的所有代码。  
+- await表达式:表示将被异步执行的任务
+- 后续部分:await表达式之后的方法中的其余代码。  
+```c#
+async Task<int> CountCharactersAsync(int id, string site)
+{
+  Console.WriteLine("Starting CountCharaters");
+  WebClient wc = new WebClient();
+  string result = await wc.DownloadStringTaskAsync(new Uri(site));
+  Console.WriteLine("CountCharacters Completed");
+  return result.Length;
+}
+```
