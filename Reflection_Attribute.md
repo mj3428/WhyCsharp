@@ -39,4 +39,14 @@ class Program
     }
   }
 }
+
+
+------------------------------------
+Object type:BaseClass
+Field:BaseField
+
+Object type:DerivedClass
+Field:DerivedField
+Field:BaseField
+------------------------------------
 ```
