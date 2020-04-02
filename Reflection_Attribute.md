@@ -8,3 +8,35 @@ Type的重要事项:
 ## 获取Type对象
 使用实例对象的GetType方法和typeof运算符和类名来获取Type对象。object类型包含了一个叫作GetType的方法，它返回对实例的Type对象的引用。由于每一
 个类型最终都是从object派生的，所以我没可以在任何类型的对象上使用GetType方法来获取它的Type对象，如:`Type t = myInstance.GetType();`
+```c#
+using System;
+using System.Reflection
+
+class BaseClass
+{
+  public int BaseField = 0;
+}
+
+class Program
+{
+  static void Main()
+  {
+    var bc = new BaseClass();
+    var dc = new DerivedClass();
+    
+    BaseClass[] bca = new BaseClass[]{bc, dc};
+    
+    foreach (var v in bca)
+    {
+      Type t = v.GetType(); //  获取类型
+      
+      Console.WriteLine($"Object type :{t.Name}");
+      
+      FieldInfo[] fi = t.GetFields(); //  获取字段值信息
+      foreach (var f in fi)
+        Console.WriteLine($"   Field:{f.Name}");
+      Console.WriteLine();
+    }
+  }
+}
+```
