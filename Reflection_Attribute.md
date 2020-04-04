@@ -50,3 +50,26 @@ Field:DerivedField
 Field:BaseField
 ------------------------------------
 ```
+## 特性的构造函数
+### 构造函数中的位置参数和命名参数
+与普通类的方法和构造函数相似，特性的构造函数同样可以使用位置参数和命名参数
+`[MyAttribute("An execellent class", Reviewer = "Amy McArthur", Ver="0.7.15.33")] //第一个是位置参数，后两个是命名参数`  
+```c#
+public sealed class MyAttributeAttribute : System.Attribute
+{
+  public string Description;
+  public string Ver;
+  public string Reviewer;
+  
+  public MyAttributeAttribute(string desc)  //  一个形参
+  {
+    Description = desc;
+  }
+}
+
+[MyAttribute("An excellent class", Reviewer = "Amy McArthur", Ver="7.15.33")]
+class Myclass
+{
+  ...
+}
+```
