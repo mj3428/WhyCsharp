@@ -36,3 +36,18 @@ CTS规定一个类型只能从一个基类派生（单继承）。因此，虽�
 - 查询一个实例的真正类型
 - 执行实例的浅拷贝
 - 获取实例对象当前状态的字符串表示  
+
+```c#
+[assembly:CLSCompliant(true)]
+
+namespace SomeLibrary{
+  public sealed class SomeLibraryType{
+    public UInt32 Abc(){ return 0;}
+    
+    public void abc() {}
+    
+    private UInt32 ABC(){return 0;}
+  }
+}
+```
+第一句告诉编译器检查其中的任何公开类型，判断是否存在任何不合适的构造阻止了从其他编程语句中访问该类型。都会出现警告：一些语言是不能操作无符号整数值的，一些警告是不能区分大小写的。  
